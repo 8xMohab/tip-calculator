@@ -1,0 +1,210 @@
+// google fonts
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+// global variables
+$Primary: hsl(172, 67%, 45%);
+$VeryDarkCyan: hsl(183, 100%, 15%);
+$DarkGrayishCyan: hsl(186, 14%, 43%);
+$GrayishCyan: hsl(184, 14%, 56%);
+$LightGrayishCyan: hsl(185, 41%, 84%);
+$VerylightGrayishCyan: hsl(189, 41%, 97%);
+$White: hsl(0, 0%, 100%);
+
+// global rules
+// remove input arrows from input type number
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+* {
+  margin: 0;
+}
+body {
+  display: flex;
+  height: 100vh;
+  font-size: 1.5rem;
+  font-family: "Space Mono", monospace;
+  background-color: $LightGrayishCyan;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  margin-bottom: 30px;
+  img {
+    color: $VeryDarkCyan;
+  }
+}
+section {
+  background-color: $White;
+  padding: 20px;
+  border-radius: 20px;
+}
+.calc-tip {
+  padding-top: 10px;
+  margin-bottom: 30px;
+  .input-cont {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  .input-main {
+    width: 100%;
+    border: none;
+    background-color: $VerylightGrayishCyan;
+    outline-color: $Primary;
+    text-align: right;
+    padding-right: 10px;
+    color: $VeryDarkCyan;
+  }
+  .input-cont::after {
+    position: absolute;
+    display: block;
+    content: url("./assets/icon-dollar.svg");
+    top: 50%;
+    transform: translate(0, -50%);
+    margin-left: 15px;
+    color: $GrayishCyan;
+  }
+  .people::after {
+    content: url("./assets/icon-person.svg");
+  }
+  .zero-check {
+    input {
+      outline-color: red;
+      border: 2px solid red;
+      border-radius: 5px;
+    }
+    position: relative;
+  }
+  .zero-check::before {
+    content: "Can't be zero";
+    position: absolute;
+    display: block;
+    font-size: 1rem;
+    right: 0;
+    top: -30px;
+    color: red;
+  }
+}
+form {
+  color: $DarkGrayishCyan;
+  input {
+    caret-shape: 10px;
+    padding: 5px 0;
+  }
+  p {
+    font-size: 1rem;
+    margin: 0;
+    margin-bottom: 5px;
+  }
+  p:nth-child(5) {
+    margin-top: 15px;
+  }
+}
+.percentage {
+  background-color: $VeryDarkCyan;
+  color: $White;
+  border: none;
+  width: 120px;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 5px 0px;
+}
+
+.custom-per {
+  background-color: $VerylightGrayishCyan;
+  color: $DarkGrayishCyan;
+}
+.selected {
+  background-color: $Primary;
+  color: $VeryDarkCyan;
+}
+.input-custom {
+  margin: 5px;
+  border-radius: 5px;
+  width: 120px;
+  border: none;
+  text-align: right;
+  background-color: $VerylightGrayishCyan;
+  color: $VeryDarkCyan;
+  padding-right: 10px;
+  outline-color: $Primary;
+}
+.display-tip {
+  display: flex;
+  flex-direction: column;
+  background-color: $VeryDarkCyan;
+  border-radius: 20px;
+  padding: 20px;
+  button {
+    width: 100%;
+    border: none;
+    text-transform: uppercase;
+    background-color: $Primary;
+    color: $VeryDarkCyan;
+    border-radius: 5px;
+    padding: 5px 0px;
+  }
+  .reset-cont {
+    display: flex;
+    flex-basis: 100%;
+    align-items: end;
+  }
+  .per-person,
+  .total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    p {
+      font-size: 1rem;
+      margin: 0;
+      color: $White;
+    }
+    :nth-child(2) {
+      color: $GrayishCyan;
+      font-size: 1rem;
+    }
+    .tip-amount {
+      font-size: 1.5rem;
+      color: $Primary;
+    }
+  }
+}
+@media screen and (min-width: 992px) {
+  .logo {
+    margin-bottom: 60px;
+  }
+  section {
+    width: 70%;
+  }
+  .percentage:hover {
+    background-color: $LightGrayishCyan;
+    color: $VeryDarkCyan;
+  }
+  .reset-btn:hover {
+    background-color: $LightGrayishCyan;
+    color: $VeryDarkCyan;
+  }
+  .sub-cont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+  .per-person,
+  .total {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  form {
+    p:nth-child(5) {
+    margin-top: 30px;
+  }
+  }
+}
